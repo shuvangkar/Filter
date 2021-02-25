@@ -48,4 +48,7 @@ uint16_t medFilterOut()
   qsort(_buf,_N,sizeof(uint16_t),cmpfunc);
   Serial.print(F("Sorted : "));
   medFilterPrint();
+  uint16_t medIndex = (_N-1)/2;
+  Serial.print(F("Median : "));Serial.println(_buf[medIndex]);
+  return  _buf[medIndex];
 }
