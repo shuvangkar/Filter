@@ -10,14 +10,7 @@ void medFilterSet(uint16_t *buf, uint8_t N)
   _index = 0;
 }
 
-void medFilterPrint(uint16_t *ptr)
-{
-  for (uint8_t i = 0; i < _N; i++)
-  {
-    Serial.print(ptr[i]); Serial.print(' ');
-  }
-  Serial.println();
-}
+
 
 void medFilterPush(uint16_t point)
 {
@@ -35,21 +28,18 @@ void medFilterPush(uint16_t point)
     }
     _buf[lastIndex] = point;
   }
-//  medFilterPrint();
 }
-
 
 int cmpfunc (const void * a, const void * b)
 {
    return ( *(int*)a - *(int*)b );
 }
+
 uint16_t medFilterOut()
 {
   uint16_t tempBuf[_N];
   memcpy(tempBuf,_buf,_N*sizeof(uint16_t));
   qsort(tempBuf,_N,sizeof(uint16_t),cmpfunc);
-  Serial.print(F("Sorted : "));
-  medFilterPrint(tempBuf);
   uint16_t medIndex = (_N-1)/2;
   return  tempBuf[medIndex];
 }

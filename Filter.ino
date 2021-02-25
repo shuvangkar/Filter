@@ -1,5 +1,7 @@
 #include "MedianFilter.h"
-#define SAMPLES 5
+
+void bufPrint(uint16_t *ptr, uint8_t N);
+#define SAMPLES 7
 uint16_t data[SAMPLES];
 
 void setup() 
@@ -13,54 +15,19 @@ void loop()
 {
   medFilterPush(random(1,30));
   Serial.print(F("Unsorted : "));
-  medFilterPrint(_buf);
+  bufPrint(_buf,SAMPLES);
   uint16_t med = medFilterOut();
+  //  Serial.print(F("Sorted : "));
+//  medFilterPrint(tempBuf);
   Serial.print(F("Median : "));Serial.println(med);
   delay(2000);
-  
-//  medFilterPush(random(1,30));
-//  delay(2000);
-//  medFilterPush(random(1,30));
-//  delay(2000);
-//  medFilterPush(random(1,30));
-//  delay(2000);
-//  medFilterPush(random(1,30));
-//  delay(2000);
-//  medFilterPush(random(1,30));
-//  delay(2000);
-//  medFilterPush(random(1,30));
-//  medFilterOut();
-//  delay(2000);
-//  
-//  medFilterPush(random(1,30));
-//  medFilterOut();
-//  delay(2000);
-//  
-//  medFilterPush(random(1,30));
-//  medFilterOut();
-//  delay(2000);
-//  
-//  medFilterPush(random(1,30));
-//  medFilterOut();
-//  delay(2000);
-//  
-//  medFilterPush(random(1,30));
-//  medFilterOut();
-//  delay(2000);
-//  
-//  medFilterPush(random(1,30));
-//  medFilterOut();
-//  delay(2000);
-//  
-//  medFilterPush(random(1,30));
-//  medFilterOut();
-//  delay(2000);
-//  
-//  medFilterPush(random(1,30));
-//  medFilterOut();
-//  delay(2000);
-//  
-//  medFilterPush(random(1,30));
-//  medFilterOut();
-//  delay(20000);
+}
+
+void bufPrint(uint16_t *ptr, uint8_t N)
+{
+  for (uint8_t i = 0; i < N; i++)
+  {
+    Serial.print(ptr[i]); Serial.print(' ');
+  }
+  Serial.println();
 }
