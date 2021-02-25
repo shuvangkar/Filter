@@ -12,48 +12,55 @@ void setup()
 void loop() 
 {
   medFilterPush(random(1,30));
-  delay(2000);
-  medFilterPush(random(1,30));
-  delay(2000);
-  medFilterPush(random(1,30));
-  delay(2000);
-  medFilterPush(random(1,30));
-  delay(2000);
-  medFilterPush(random(1,30));
-  delay(2000);
-  medFilterPush(random(1,30));
-  medFilterOut();
+  Serial.print(F("Unsorted : "));
+  medFilterPrint(_buf);
+  uint16_t med = medFilterOut();
+  Serial.print(F("Median : "));Serial.println(med);
   delay(2000);
   
-  medFilterPush(random(1,30));
-  medFilterOut();
-  delay(2000);
-  
-  medFilterPush(random(1,30));
-  medFilterOut();
-  delay(2000);
-  
-  medFilterPush(random(1,30));
-  medFilterOut();
-  delay(2000);
-  
-  medFilterPush(random(1,30));
-  medFilterOut();
-  delay(2000);
-  
-  medFilterPush(random(1,30));
-  medFilterOut();
-  delay(2000);
-  
-  medFilterPush(random(1,30));
-  medFilterOut();
-  delay(2000);
-  
-  medFilterPush(random(1,30));
-  medFilterOut();
-  delay(2000);
-  
-  medFilterPush(random(1,30));
-  medFilterOut();
-  delay(20000);
+//  medFilterPush(random(1,30));
+//  delay(2000);
+//  medFilterPush(random(1,30));
+//  delay(2000);
+//  medFilterPush(random(1,30));
+//  delay(2000);
+//  medFilterPush(random(1,30));
+//  delay(2000);
+//  medFilterPush(random(1,30));
+//  delay(2000);
+//  medFilterPush(random(1,30));
+//  medFilterOut();
+//  delay(2000);
+//  
+//  medFilterPush(random(1,30));
+//  medFilterOut();
+//  delay(2000);
+//  
+//  medFilterPush(random(1,30));
+//  medFilterOut();
+//  delay(2000);
+//  
+//  medFilterPush(random(1,30));
+//  medFilterOut();
+//  delay(2000);
+//  
+//  medFilterPush(random(1,30));
+//  medFilterOut();
+//  delay(2000);
+//  
+//  medFilterPush(random(1,30));
+//  medFilterOut();
+//  delay(2000);
+//  
+//  medFilterPush(random(1,30));
+//  medFilterOut();
+//  delay(2000);
+//  
+//  medFilterPush(random(1,30));
+//  medFilterOut();
+//  delay(2000);
+//  
+//  medFilterPush(random(1,30));
+//  medFilterOut();
+//  delay(20000);
 }
