@@ -68,7 +68,7 @@ uint16_t medFilterOut(filter_type_t type)
   uint16_t tempBuf[_N];
   memcpy(tempBuf,_buf,_N*sizeof(uint16_t));
   
-  uint16_t out;
+  uint16_t out = 0;
   switch(type)
   {
 	  case MEDIAN:
@@ -79,7 +79,7 @@ uint16_t medFilterOut(filter_type_t type)
 		out = average(tempBuf,_N);
 	  break;
   } 
-  SerialPrintF(P("Filter out : ")); SerialPrintlnU16(out);
+  //SerialPrintF(P("Filter out : ")); SerialPrintlnU16(out);
   return out;
   
   /*
